@@ -6,11 +6,28 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/18 12:54:49 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/18 19:16:59 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+/*
+ * Check the file path if containes
+ *  ".ber" in the end
+ */
+int ft_check_map_path(char *map_path)
+{
+    int len;
+    char *s;
+
+    len = ft_strlen(map_path);
+    s = &map_path[(len - 4)];
+    if (ft_strncmp(s, ".ber", 4) == 0)
+        return (1);
+    return (0);
+}
+
 int ft_error()
 {
     printf("Error of reading the map");

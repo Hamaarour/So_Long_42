@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/18 15:18:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/18 19:18:56 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct s_vars
     void *win;
 }   t_vars;
 
-
-// so long 
+// so long
+int ft_check_map_path(char *map_path);
 int key_hook_press(int keycode, void *param);
 int exit_game(void);
 int ft_error();
