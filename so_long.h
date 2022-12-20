@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/18 19:18:56 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:42:17 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@
 
 //*start Libft functions
 int ft_strncmp(char *s1, char *s2, unsigned int n);
-
-
-// *start Libft functions
+void *ft_calloc(size_t count, size_t size);
+char *ft_strjoin_split(char *s1, char *s2);
+char	*ft_substr_split(char *s, unsigned int start, size_t len);
+char **ft_split(char *s, char sep);
+//*start Libft functions
 
 // *start printf functions
 int ft_putchar(char c);
@@ -43,13 +45,20 @@ size_t ft_strlen(const char *str);
 int ft_printf(const char *str, ...);
 // *end printf functions
 
+
+
+
+
 // *start Get next line functions
 int ft_strchr(char *str);
-char *ft_strjoin(char **left_str, char *buff);
 char *ft_strdup(const char *s1);
 char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strjoin(char **s, char *buff);
 char *get_next_line(int fd);
 // *END Get next line functions
+
+
+
 
 typedef struct s_data
 {
@@ -64,6 +73,7 @@ typedef struct s_data
 
 typedef struct s_map
 {
+    char **data_map;
     void *player;
     void *wall;
     void *collec;
@@ -72,8 +82,6 @@ typedef struct s_map
     int height;
     int player_x;
     int player_y;
-    int enemy_x;
-    int enemy_y;
 
 } t_map;
 

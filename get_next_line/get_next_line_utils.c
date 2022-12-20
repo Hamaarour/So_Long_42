@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:22 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/16 20:01:00 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:04:31 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,3 @@ char	*ft_strjoin(char **s, char *buff)
 	*s = 0;
 	return (str);
 }
-
-// size_t	ft_strlen(const char *str)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }

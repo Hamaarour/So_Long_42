@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 20:56:41 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 14:33:46 by hamaarou         ###   ########.fr       */
+/*   Created: 2022/10/10 14:13:02 by hamaarou          #+#    #+#             */
+/*   Updated: 2022/12/20 14:34:00 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+void *ft_calloc(size_t count, size_t size)
 {
-	unsigned int	i;
+	void *p;
+	size_t i;
 
 	i = 0;
-	while (i < n
-		&& ((unsigned char)s1[i] != '\0' || (unsigned char)s2[i] != '\0'))
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	if (count != 0 && size > SIZE_MAX / count)
+		return (0);
+	p = malloc(count * size);
+	if (!p)
+		return (NULL);
+	while (i < count * size)
+		((char *)p)[i++] = 0;
+	return ((void *)p);
 }
