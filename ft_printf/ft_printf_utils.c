@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:27:57 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/15 14:32:59 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:50:44 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int count_nbr(unsigned long nbr, int bs, int sign)
 {

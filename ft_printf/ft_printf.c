@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:33:03 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/16 20:00:38 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:56:32 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 size_t ft_strlen(const char *str)
 {
@@ -76,6 +76,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (k);
 }
-// line 59 protection in user enter a percent in the last %s %d '%'
-// if (str[i] == '\0')
-// 	break ;

@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:16 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/16 15:10:11 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:50:36 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	*ss(int fd, char *buffer, char *tmp, char **string)
 {

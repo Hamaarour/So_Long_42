@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:22 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/19 15:04:31 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:50:31 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	ft_strchr(char *s)
 {
