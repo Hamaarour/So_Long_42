@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/21 01:19:53 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 22:48:06 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int	key_hook_press(int keycode, void *param)
 	return (0);
 }
 
+/***
+ * *read map ant return width and height
+ * * of the map
+*/
 int	map(t_map *map)
 {
 	int		fd;
@@ -63,50 +67,76 @@ int	map(t_map *map)
 	int		y;
 	int		x;
 
+	y = 0;
+	lines = NULL;
 	fd = open("./maps/map3.ber", O_RDONLY);
-	if (fd != -1)
+	while ((line = get_next_line(fd)) != NULL)
+		lines = ft_strjoin_split(lines, line);
+	while (lines[y])
 	{
-		while ((line = get_next_line(fd)) != NULL)
-			lines = ft_strjoin_split(lines, line);
-		total = ft_split(lines, '\n');
-		y = 0;
-		while (total[y])
-		{
-			x = 0;
-			while (total[y][x])
-				x++;
-			y++;
-		}
-		map->width = x;
-		map->height = y;
-		map->data_map = total;
-		return (1);
+		if (lines[y] == '\n' && lines[y + 1] == '\n')
+			return (0);
+		y++;
 	}
-	return (0);
+	total = ft_split(lines, '\n');
+	y = 0;
+	while (total[y])
+	{
+		x = 0;
+		while (total[y][x])
+		{
+			if (total[y][x] != '1' && total[y][x] != '0' && total[y][x] != 'P'
+				&& total[y][x] != 'E' && total[y][x] != 'C' )
+				return (0);
+			x++;
+		}
+		y++;
+	}
+	map->width = x;
+	map->height = y;
+	map->data_map = total;
+	free(line);
+	return (1);
 }
-int	check_square(char **map)
+
+/***
+ * * check if the map serenaded by 1's
+ * * 11111111
+ * * 1......1
+ * * 1......1
+ * * 11111111
+*/
+int	check_square(t_map *map)
 {
-	int		i;
-	int		j;
-	t_map	m;
+	int	i;
+	int	j;
+	int	len;
 
 	i = 0;
-	while (map[i])
+	while (map->data_map[i])
 	{
-		if (i == 0 || i == (m.height) - 1)
+		if (i == 0 || i == map->height - 1)
 		{
 			j = 0;
-			while (map[i][j])
+			while (map->data_map[i][j])
 			{
-				if (map[i][j] != '1')
+				if (map->data_map[i][j] != '1')
 					return (0);
 				j++;
 			}
 		}
+		len = ft_strlen(map->data_map[0]);
+		if (map->data_map[i][0] != '1' || map->data_map[i][len - 1] != '1')
+			return (0);
 		i++;
 	}
 	return (1);
 }
+
+/* 
+ * * check if the map lines hame 
+ * * the same length
+*/
 int	check_line_length(t_map *map)
 {
 	int	y;
@@ -115,20 +145,19 @@ int	check_line_length(t_map *map)
 
 	y = 1;
 	k = ft_strlen(map->data_map[0]);
-	printf("square");
-	if (check_square(map->data_map))
+	while (map->data_map[y])
 	{
-		while (map->data_map[y])
-		{
-			x = 0;
-			if (k != ft_strlen(map->data_map[y]))
-				return (0);
-			y++;
-		}
+		x = 0;
+		if (k != ft_strlen(map->data_map[y]))
+			return (0);
+		y++;
 	}
 	return (1);
 }
 
+/**
+ * *position x & y of the player 
+ */
 void	check_player_position(t_map *map)
 {
 	int	y;

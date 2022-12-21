@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 22:39:40 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:39:30 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ int			key_hook_press(int keycode, void *param);
 int			ft_error(void);
 void		check_player_position(t_map *map);
 int			check_line_length(t_map *map);
+int			check_square(t_map *map);
+int			map(t_map *map);
 
 #endif

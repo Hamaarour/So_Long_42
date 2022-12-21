@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:57 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 14:57:50 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:41:42 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char *ft_strjoin_split(char *s1, char *s2)
 	while (s2[i])
 		p[j++] = s2[i++];
 	p[j] = 0;
+	free(s1);
+	s1 = NULL;
 	return (p);
 }
 

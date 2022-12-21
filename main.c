@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/21 01:20:22 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 22:47:16 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,26 @@ int	main(int argc, char **argv)
 	int		b;
 	int		j;
 	int		k;
+	char	**s;
 
 	if (argc != 2)
 	{
 		ft_error();
 		return (0);
 	}
-	if (ft_check_map_path(argv[1]) == 0)
+	if (!ft_check_map_path(argv[1]))
 	{
 		ft_error();
 		return (0);
 	}
+	if (!map(&m))
+	{
+		ft_error();
+		return (0);
+	}if (check_line_length(&m) == 0 || check_square(&m) == 0)
+		ft_error();
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 19 * 50, 8 * 50, "Splinter game");
+	vars.win = mlx_new_window(vars.mlx, m.width * 50, m.height * 50, "Splinter game");
 	ii.img_wall = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm",
 			&ii.width, &ii.height);
 	ii.img_collect = mlx_xpm_file_to_image(vars.mlx, "./images/collectible.xpm",
@@ -91,12 +98,12 @@ int	main(int argc, char **argv)
 			&ii.height);
 	ii.img_player = mlx_xpm_file_to_image(vars.mlx, "./images/player.xpm",
 			&ii.width, &ii.height);
-	b = map(&m);
-	if (!check_line_length(&m))
-		ft_error();
+	
+	
 	check_player_position(&m);
 	rad_map(&ii, &vars);
 	mlx_key_hook(vars.win, key_hook_press, (void *)0);
 	mlx_hook(vars.win, 17, 0, ft_error, (void *)0);
 	mlx_loop(vars.mlx);
+	mlx_destroy_window(vars.mlx, vars.win);
 }
