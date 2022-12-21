@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 23:44:48 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 01:19:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,36 +61,52 @@ int	map(t_map *map)
 	char	*line;
 	char	*lines;
 	int		y;
-	int x;
+	int		x;
 
 	fd = open("./maps/map3.ber", O_RDONLY);
-	while ((line = get_next_line(fd)) != NULL)
-		lines = ft_strjoin_split(lines, line);
-	total = ft_split(lines, '\n');
-	y = 0;
-	while (total[y])
+	if (fd != -1)
 	{
-		x = 0;
-		while (total[y][x])
+		while ((line = get_next_line(fd)) != NULL)
+			lines = ft_strjoin_split(lines, line);
+		total = ft_split(lines, '\n');
+		y = 0;
+		while (total[y])
 		{
-			
-			if (total[y][x] != '1' || total[y][x] != '0' 
-				|| total[y][x] != 'E' || total[y][x] != 'C' || total[y][x] != 'P')
-			{
-				printf("y > %c\n", total[y][x]);
-				return (0);
-				}
-				
-			
-			x++;
+			x = 0;
+			while (total[y][x])
+				x++;
+			y++;
 		}
-		y++;
+		map->width = x;
+		map->height = y;
+		map->data_map = total;
+		return (1);
 	}
-	map->data_map = total;
+	return (0);
+}
+int	check_square(char **map)
+{
+	int		i;
+	int		j;
+	t_map	m;
 
+	i = 0;
+	while (map[i])
+	{
+		if (i == 0 || i == (m.height) - 1)
+		{
+			j = 0;
+			while (map[i][j])
+			{
+				if (map[i][j] != '1')
+					return (0);
+				j++;
+			}
+		}
+		i++;
+	}
 	return (1);
 }
-
 int	check_line_length(t_map *map)
 {
 	int	y;
@@ -99,12 +115,16 @@ int	check_line_length(t_map *map)
 
 	y = 1;
 	k = ft_strlen(map->data_map[0]);
-	while (map->data_map[y])
+	printf("square");
+	if (check_square(map->data_map))
 	{
-		x = 0;
-		if (k != ft_strlen(map->data_map[y]))
-			return (0);
-		y++;
+		while (map->data_map[y])
+		{
+			x = 0;
+			if (k != ft_strlen(map->data_map[y]))
+				return (0);
+			y++;
+		}
 	}
 	return (1);
 }

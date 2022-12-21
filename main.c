@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 23:40:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/21 01:20:22 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ int	main(int argc, char **argv)
 	t_img	ii;
 	t_vars	vars;
 	t_map	m;
+	int		b;
+	int		j;
+	int		k;
 
 	if (argc != 2)
 	{
@@ -88,13 +91,12 @@ int	main(int argc, char **argv)
 			&ii.height);
 	ii.img_player = mlx_xpm_file_to_image(vars.mlx, "./images/player.xpm",
 			&ii.width, &ii.height);
-	int b = map(&m);
-    int j = check_line_length(&m);
-    if (b == 0)
-        ft_error();
-    check_player_position(&m);
-    rad_map(&ii, &vars);
-    mlx_key_hook(vars.win, key_hook_press, (void *)0);
+	b = map(&m);
+	if (!check_line_length(&m))
+		ft_error();
+	check_player_position(&m);
+	rad_map(&ii, &vars);
+	mlx_key_hook(vars.win, key_hook_press, (void *)0);
 	mlx_hook(vars.win, 17, 0, ft_error, (void *)0);
 	mlx_loop(vars.mlx);
 }
