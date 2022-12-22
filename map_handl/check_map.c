@@ -6,13 +6,13 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:56:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 21:33:01 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:45:57 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-/***
+/*
  * *read map ant return width and height
  * * of the map
 */

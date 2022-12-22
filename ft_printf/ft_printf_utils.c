@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:27:57 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 21:32:16 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:28:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	ft_putnbr(long int nbr)
 
 int	ft_putstr(char *str)
 {
-	int     i;
-	char    *n;
+	int		i;
+	char	*n;
 
 	n = "(null)";
 	i = 0;

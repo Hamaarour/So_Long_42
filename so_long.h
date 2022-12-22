@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 15:35:56 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:35:20 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ typedef struct s_vars
 // so long
 int			ft_check_map_path(char *map_path);
 int			key_hook_press(int keycode, void *param);
-int			ft_error(void);
+int			ft_exit(void);
 void		check_player_position(t_map *map);
 int			check_line_length(t_map *map);
 int			check_square(t_map *map);
 int			map(t_map *map, char *argv);
-void		render_map(t_img *img, t_vars *vars, char *argv);
-int check_one_p_e_c(t_map *map);
+void		render_map(t_img *img, t_vars *vars, char *argv, t_map *map);
+int			check_one_p_e_c(t_map *map);
 
 #endif

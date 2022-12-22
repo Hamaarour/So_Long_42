@@ -6,16 +6,16 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 17:27:03 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 20:53:05 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:30:27 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static size_t count_word(char const *s, char sep)
+static	size_t	count_word(char const *s, char sep)
 {
-	size_t i;
-	size_t count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -33,9 +33,9 @@ static size_t count_word(char const *s, char sep)
 	return (count);
 }
 
-static int free_space(char **p)
+static	int	free_space(char **p)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (p[i])
@@ -46,9 +46,9 @@ static int free_space(char **p)
 	return (1);
 }
 
-static char **aloc(char const *s, char sep)
+static	char	**aloc(char const *s, char sep)
 {
-	char **k;
+	char	**k;
 
 	k = (char **)ft_calloc((count_word(s, sep) + 1), sizeof(char *));
 	if (!k)
@@ -56,19 +56,19 @@ static char **aloc(char const *s, char sep)
 	return (k);
 }
 
-static int ww(char const *s, char sep, int i)
+static	int	ww(char const *s, char sep, int i)
 {
 	while (s[i] && s[i] != sep)
 		i++;
 	return (i);
 }
 
-char **ft_split(char *s, char sep)
+char	**ft_split(char *s, char sep)
 {
-	char **p;
-	size_t start;
-	size_t i;
-	size_t j;
+	char	**p;
+	size_t	start;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
