@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/21 20:39:30 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:35:56 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int			ft_error(void);
 void		check_player_position(t_map *map);
 int			check_line_length(t_map *map);
 int			check_square(t_map *map);
-int			map(t_map *map);
+int			map(t_map *map, char *argv);
+void		render_map(t_img *img, t_vars *vars, char *argv);
+int check_one_p_e_c(t_map *map);
 
 #endif

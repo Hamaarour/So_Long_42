@@ -6,16 +6,16 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:57 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/21 21:41:42 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:30:11 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void *ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void *p;
-	size_t i;
+	void	*p;
+	size_t	i;
 
 	i = 0;
 	if (count != 0 && size > SIZE_MAX / count)
@@ -28,16 +28,16 @@ void *ft_calloc(size_t count, size_t size)
 	return ((void *)p);
 }
 
-char *ft_strjoin_split(char *s1, char *s2)
+char	*ft_strjoin_split(char *s1, char *s2)
 {
-	char *p;
-	int i;
-	int j;
-	int full_len;
+	char	*p;
+	int		i;
+	int		j;
+	int		full_len;
 
 	i = 0;
 	j = 0;
-	if(!s1)
+	if (!s1)
 	{
 		s1 = (char *)malloc(sizeof(char) * 1);
 		s1[0] = '\0';
@@ -59,7 +59,6 @@ char *ft_strjoin_split(char *s1, char *s2)
 		p[j++] = s2[i++];
 	p[j] = 0;
 	free(s1);
-	s1 = NULL;
 	return (p);
 }
 
@@ -68,8 +67,8 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (i < n
-		&& ((unsigned char)s1[i] != '\0' || (unsigned char)s2[i] != '\0'))
+	while (i < n && ((unsigned char)s1[i] != '\0'
+			|| (unsigned char)s2[i] != '\0'))
 	{
 		if ((unsigned char)s1[i] != (unsigned char)s2[i])
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);

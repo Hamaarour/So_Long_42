@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:16 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/20 14:50:36 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:32:38 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,3 @@ char	*get_next_line(int fd)
 	line = get_line_ss(&string, line);
 	return (line);
 }
-
