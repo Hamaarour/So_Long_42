@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 22:53:45 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:16:00 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ int	main(int argc, char **argv)
 	mlx_key_hook(vars.win, key_hook_press, 0);
 	mlx_hook(vars.win, 17, 0, ft_exit, 0);
 	mlx_loop(vars.mlx);
-	free(vars.mlx);
 	mlx_destroy_window(vars.mlx, vars.win);
 }

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:57 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 23:00:38 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:10:03 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ void	*ft_calloc(size_t count, size_t size)
 	return ((void *)p);
 }
 
+char	*join_utils(char *s1)
+{
+	s1 = (char *)malloc(sizeof(char) * 1);
+	s1[0] = '\0';
+	return (s1);
+}
+
 char	*ft_strjoin_split(char *s1, char *s2)
 {
 	char	*p;
@@ -38,10 +45,7 @@ char	*ft_strjoin_split(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char) * 1);
-		s1[0] = '\0';
-	}
+		s1 = join_utils(s1);
 	if (!s2)
 		return (NULL);
 	full_len = ft_strlen(s1) + ft_strlen(s2);
@@ -49,11 +53,7 @@ char	*ft_strjoin_split(char *s1, char *s2)
 	if (!p)
 		return (NULL);
 	while (s1[i])
-	{
-		p[j] = s1[i];
-		i++;
-		j++;
-	}
+		p[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
 		p[j++] = s2[i++];
