@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:56:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 22:45:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:22:57 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	check_square(t_map *map)
 	return (1);
 }
 
-/* 
+/*
  * * check if the map lines has
  * * the same length
 */
@@ -122,7 +122,7 @@ int	check_line_length(t_map *map)
 }
 
 /*
- * * check if the has a minimum one player 
+ * * check if the has a minimum one player
  * * and 1 exit and at lest one collectible
  * * (pec)==> p = player , e = exit , c = collectible
 */
@@ -149,6 +149,7 @@ int	check_one_p_e_c(t_map *map)
 		}
 		i++;
 	}
+	map->collectible = count_collectible;
 	if (count_collectible < 1 || counter > 2)
 		return (0);
 	return (1);

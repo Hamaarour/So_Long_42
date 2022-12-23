@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 00:15:12 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:32:19 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,55 @@ int	key_hook_press(int keycode, t_map *m)
 	{
 		if (m->data_map[m->player_y - 1][m->player_x] != '1')
 		{
-			// m->data_map[m->player_y][m->player_x] = '0';
-			// m->data_map[m->player_y - 1][m->player_x] = 'P';
 			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_gr,
 					m->player_x * 80, m->player_y * 80);
-			mlx_put_image_to_window(m->vars.mlx, m->vars.win,
-					m->img.img_player, m->player_x * 80, m->player_y * 80 - 80);
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_player,
+					m->player_x * 80, m->player_y * 80 - 80);
 			m->player_y -= 1;
-			printf(" x == %d .  y == %d\n", m->player_x, m->player_y);
+			ft_printf("You pressed button  UP  move ==> [%d]\n",
+						++count_move);
 		}
 		// move_up(&m);
 	}
 	else if (keycode == 0 || keycode == 123)
-		ft_printf("You pressed button  LEFT  move ==> [%d]\n", ++count_move);
+	{
+		if (m->data_map[m->player_y ][m->player_x - 1] != '1')
+		{
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_gr,
+					m->player_x * 80, m->player_y * 80);
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_player,
+					m->player_x * 80 - 80, m->player_y * 80);
+			m->player_x -= 1;
+			ft_printf("You pressed button  LEFT  move ==> [%d]\n",
+						++count_move);
+		}
+	}
 	else if (keycode == 1 || keycode == 125)
-		ft_printf("You pressed button  DOWN  move ==> [%d]\n", ++count_move);
+	{
+		if (m->data_map[m->player_y + 1][m->player_x] != '1')
+		{
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_gr,
+					m->player_x * 80, m->player_y * 80);
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_player,
+					m->player_x * 80, m->player_y * 80 + 80);
+			m->player_y += 1;
+			ft_printf("You pressed button  DOWN  move ==> [%d]\n",
+						++count_move);
+		}
+	}
 	else if (keycode == 2 || keycode == 124)
-		ft_printf("You pressed button  RIGHT move ==> [%d]\n", ++count_move);
+	{
+		if (m->data_map[m->player_y][m->player_x + 1] != '1')
+		{
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_gr,
+					m->player_x * 80, m->player_y * 80);
+			mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_player,
+					m->player_x * 80 + 80, m->player_y * 80 );
+			m->player_x += 1;
+			ft_printf("You pressed button  RIGHT move ==> [%d]\n",
+					++count_move);
+		}
+	}
 	else if (keycode == 53)
 		exit(0);
 	return (0);

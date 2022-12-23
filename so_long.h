@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 00:12:26 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:21:13 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_map
 	int		height;
 	int		player_x;
 	int		player_y;
+	int		collectible;
 	t_img	img;
 	t_vars	vars;
 }			t_map;
