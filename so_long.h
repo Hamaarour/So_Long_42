@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 22:35:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:12:26 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ char		*ft_strjoin(char **s, char *buff);
 char		*get_next_line(int fd);
 // *END Get next line functions
 
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+
+}			t_vars;
+
 typedef struct s_data
 {
 	void	*img_player;
@@ -75,24 +82,24 @@ typedef struct s_map
 	int		height;
 	int		player_x;
 	int		player_y;
-
+	t_img	img;
+	t_vars	vars;
 }			t_map;
-
-typedef struct s_vars
-{
-	void	*mlx;
-	void	*win;
-}			t_vars;
 
 // so long
 int			ft_check_map_path(char *map_path);
-int			key_hook_press(int keycode, void *param);
+int			key_hook_press(int keycode, t_map *param);
 int			ft_exit(void);
 void		check_player_position(t_map *map);
 int			check_line_length(t_map *map);
 int			check_square(t_map *map);
 int			map(t_map *map, char *argv);
-void		render_map(t_img *img, t_vars *vars, char *argv, t_map *map);
+void		render_map(t_map *map);
 int			check_one_p_e_c(t_map *map);
+void 		put_image(t_map *p);
+
+// Move player position
+void move_up(t_map *vm);
+// End Move player position
 
 #endif

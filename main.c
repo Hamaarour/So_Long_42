@@ -6,50 +6,54 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/22 23:16:00 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:14:09 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_image(t_img *ii, t_vars *vars)
+void	put_image(t_map *p)
 {
-	ii->img_wall = mlx_xpm_file_to_image(vars->mlx, "./Textures/wall.xpm",
-			&ii->width, &ii->height);
-	ii->img_collect = mlx_xpm_file_to_image(vars->mlx,
-			"./Textures/collectible.xpm", &ii->width, &ii->height);
-	ii->img_exit = mlx_xpm_file_to_image(vars->mlx, "./Textures/exit.xpm",
-			&ii->width, &ii->height);
-	ii->img_gr = mlx_xpm_file_to_image(vars->mlx, "./Textures/gr.xpm",
-			&ii->width, &ii->height);
-	ii->img_player = mlx_xpm_file_to_image(vars->mlx, "./Textures/player.xpm",
-			&ii->width, &ii->height);
+	p->img.img_wall = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/wall.xpm",
+			&p->img.width, &p->img.height);
+	p->img.img_collect = mlx_xpm_file_to_image(p->vars.mlx,
+												"./Textures/collectible.xpm",
+												&p->img.width,
+												&p->img.height);
+	p->img.img_exit = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/exit.xpm",
+			&p->img.width, &p->img.height);
+	p->img.img_gr = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/gr.xpm",
+			&p->img.width, &p->img.height);
+	p->img.img_player = mlx_xpm_file_to_image(p->vars.mlx,
+												"./Textures/player.xpm",
+												&p->img.width,
+												&p->img.height);
 }
 
 int	main(int argc, char **argv)
 {
-	t_img	ii;
-	t_vars	vars;
+	//t_vars	vars;
 	t_map	m;
 
 	if (argc != 2 || !ft_check_map_path(argv[1]) || !map(&m, argv[1]))
 	{
 		printf("Error of reading the map");
-		return (0);
+		exit(1);
 	}
 	if (!check_line_length(&m) || !check_square(&m))
 	{
 		printf("Error of reading the map");
-		return (0);
+		exit(1);
 	}
 	check_player_position(&m);
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, m.width * 50, m.height * 50,
+	//printf(" x == %d .  y == %d", m.player_x, m. player_y);
+	m.vars.mlx = mlx_init();
+	m.vars.win = mlx_new_window(m.vars.mlx, m.width * 80, m.height * 80,
 			"Splinter game");
-	put_image(&ii, &vars);
-	render_map(&ii, &vars, argv[1], &m);
-	mlx_key_hook(vars.win, key_hook_press, 0);
-	mlx_hook(vars.win, 17, 0, ft_exit, 0);
-	mlx_loop(vars.mlx);
-	mlx_destroy_window(vars.mlx, vars.win);
+	mlx_key_hook(m.vars.win, key_hook_press, &m);
+	put_image(&m);
+	render_map(&m);
+	mlx_hook(m.vars.win, 17, 0, ft_exit, 0);
+	mlx_loop(m.vars.mlx);
+	mlx_destroy_window(m.vars.mlx, m.vars.win);
 }
