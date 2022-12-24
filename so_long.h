@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 00:21:13 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 00:58:02 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,13 @@ int			check_square(t_map *map);
 int			map(t_map *map, char *argv);
 void		render_map(t_map *map);
 int			check_one_p_e_c(t_map *map);
-void 		put_image(t_map *p);
+void		put_image(t_map *p);
 
 // Move player position
-void move_up(t_map *vm);
+void		move_up(t_map *vm);
+void		move_left(t_map *m);
+void		move_right(t_map *m);
+void		move_down(t_map *m);
 // End Move player position
 
 #endif
