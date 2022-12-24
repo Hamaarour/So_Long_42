@@ -6,27 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 17:11:53 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 19:37:09 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-/**
- * *Check the path of the map
- * *need some features like (.ber.ber)
- */
-int	ft_check_map_path(char *map_path)
-{
-	int		len;
-	char	*s;
-
-	len = ft_strlen(map_path);
-	s = &map_path[(len - 4)];
-	if (ft_strncmp(s, ".ber", 4) == 0)
-		return (1);
-	return (0);
-}
 
 /**
  * *exit from the game
@@ -37,6 +21,14 @@ int	ft_exit(void)
 	return (0);
 }
 
+void	pp(int count_move, t_map *m)
+{
+	mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_wall, 0 * 80, 0
+			* 80);
+	mlx_string_put(m->vars.mlx, m->vars.win, 20, 20, 0xffffff,
+			ft_itoa(count_move));
+}
+
 int	key_hook_press(int keycode, t_map *m)
 {
 	static int	count_move;
@@ -45,33 +37,28 @@ int	key_hook_press(int keycode, t_map *m)
 	{
 		if (move_up(m))
 			ft_printf("You pressed button  UP  move ==> [%d]\n", ++count_move);
-		//door_open(m);
 	}
 	else if (keycode == 0 || keycode == 123)
 	{
 		if (move_left(m))
 			ft_printf("You pressed button  LEFT  move ==> [%d]\n",
-						++count_move);
-		//door_open(m);
+					++count_move);
 	}
 	else if (keycode == 1 || keycode == 125)
 	{
 		if (move_down(m))
 			ft_printf("You pressed button  DOWN  move ==> [%d]\n",
-						++count_move);
-		//door_open(m);
+					++count_move);
 	}
 	else if (keycode == 2 || keycode == 124)
 	{
 		if (move_right(m))
 			ft_printf("You pressed button  RIGHT move ==> [%d]\n",
-						++count_move);
-		//door_open(m);
-
+					++count_move);
 	}
 	else if (keycode == 53)
 		exit(0);
-	return (0);
+	return (pp(count_move, m), 0);
 }
 
 /**

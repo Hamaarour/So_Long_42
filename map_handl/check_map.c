@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:56:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 00:22:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:34:19 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,4 +153,20 @@ int	check_one_p_e_c(t_map *map)
 	if (count_collectible < 1 || counter > 2)
 		return (0);
 	return (1);
+}
+
+/**
+ * *Check the path of the map
+ * *need some features like (.ber.ber)
+ */
+int	ft_check_map_path(char *map_path)
+{
+	int		len;
+	char	*s;
+
+	len = ft_strlen(map_path);
+	s = &map_path[(len - 4)];
+	if (ft_strncmp(s, ".ber", 4) == 0)
+		return (1);
+	return (0);
 }

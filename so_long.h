@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 17:14:30 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:14:13 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strjoin_split(char *s1, char *s2);
 char		*ft_substr_split(char *s, unsigned int start, size_t len);
 char		**ft_split(char *s, char sep);
+char		*ft_itoa(int l);
 //*start Libft functions
 
 // *start printf functions
@@ -79,11 +80,12 @@ typedef struct s_map
 	int		player_x;
 	int		player_y;
 	int		collectible;
+	int		total_moves;
 	t_img	img;
 	t_vars	vars;
 }			t_map;
 
-// so long
+/* ------------so long--------------*/
 int			ft_check_map_path(char *map_path);
 int			key_hook_press(int keycode, t_map *param);
 int			ft_exit(void);
@@ -95,13 +97,14 @@ void		render_map(t_map *map);
 int			check_one_p_e_c(t_map *map);
 void		put_image(t_map *p);
 
-// Move player position
+/* --------Move player position--------*/
 int			move_up(t_map *vm);
 int			move_left(t_map *m);
 int			move_right(t_map *m);
 int			move_down(t_map *m);
-// End Move player position
 
+/* -----open the door--------*/
 int			door_open(t_map *m, int x, int y);
+void		win(void);
 
 #endif

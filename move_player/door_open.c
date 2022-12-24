@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:03:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 17:22:55 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:16:14 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	door_open(t_map *m, int x, int y)
 {
 	if (m->collectible == 0 && m->data_map[x][y] == 'E')
-		exit(0);
+		win();
 	return (0);
 }
