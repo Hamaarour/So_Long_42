@@ -6,12 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:54:31 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 17:38:07 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:24:13 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
 
 static int	calcul_digit(int n)
 {

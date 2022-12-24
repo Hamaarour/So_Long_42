@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:56:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 18:34:19 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:25:08 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int	check_square(t_map *map)
  * * check if the map lines has
  * * the same length
 */
+
 int	check_line_length(t_map *map)
 {
 	int	y;
