@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 00:27:26 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 16:15:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	put_image(t_map *p)
 
 int	main(int argc, char **argv)
 {
-	//t_vars	vars;
 	t_map	m;
 
+	//t_vars	vars;
 	if (argc != 2 || !ft_check_map_path(argv[1]) || !map(&m, argv[1]))
 	{
 		printf("Error of reading the map");
@@ -46,13 +46,13 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	check_player_position(&m);
-	//printf(" x == %d .  y == %d", m.player_x, m. player_y);
 	m.vars.mlx = mlx_init();
 	m.vars.win = mlx_new_window(m.vars.mlx, m.width * 80, m.height * 80,
 			"Splinter game");
 	mlx_key_hook(m.vars.win, key_hook_press, &m);
 	put_image(&m);
 	render_map(&m);
+	//mlx_string_put(m.vars.mlx, m.vars.win, 10, 10,0xffffffff, "Sds");
 	mlx_hook(m.vars.win, 17, 0, ft_exit, 0);
 	mlx_loop(m.vars.mlx);
 	mlx_destroy_window(m.vars.mlx, m.vars.win);
