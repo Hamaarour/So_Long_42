@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 16:29:14 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:11:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,30 @@ int	key_hook_press(int keycode, t_map *m)
 	if (keycode == 13 || keycode == 126)
 	{
 		if (move_up(m))
-		{
-			printf("\n%d\n", m->collectible);
 			ft_printf("You pressed button  UP  move ==> [%d]\n", ++count_move);
-		}
+		//door_open(m);
 	}
 	else if (keycode == 0 || keycode == 123)
 	{
 		if (move_left(m))
-		{
-			printf("\n%d\n", m->collectible);
-			ft_printf("You pressed button  LEFT  move ==> [%d]\n", ++count_move);
-		}
+			ft_printf("You pressed button  LEFT  move ==> [%d]\n",
+						++count_move);
+		//door_open(m);
 	}
 	else if (keycode == 1 || keycode == 125)
 	{
 		if (move_down(m))
-		{
-			printf("\n%d\n", m->collectible);
-			ft_printf("You pressed button  DOWN  move ==> [%d]\n", ++count_move);
-		}
+			ft_printf("You pressed button  DOWN  move ==> [%d]\n",
+						++count_move);
+		//door_open(m);
 	}
 	else if (keycode == 2 || keycode == 124)
 	{
 		if (move_right(m))
-		{
-			printf("\n%d\n", m->collectible);
-			ft_printf("You pressed button  RIGHT move ==> [%d]\n", ++count_move);
-		}
+			ft_printf("You pressed button  RIGHT move ==> [%d]\n",
+						++count_move);
+		//door_open(m);
+
 	}
 	else if (keycode == 53)
 		exit(0);

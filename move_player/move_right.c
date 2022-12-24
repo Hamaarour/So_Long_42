@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 00:53:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 16:26:10 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:16:57 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	move_right(t_map *m)
 {
-	if (m->data_map[m->player_y][m->player_x + 1] != '1')
+	if ((m->data_map[m->player_y][m->player_x + 1] != '1'
+		&& m->data_map[m->player_y][m->player_x + 1] != 'E') || door_open(m,
+			m->player_y, m->player_x + 1))
 	{
 		if (m->data_map[m->player_y][m->player_x + 1] == 'C')
 		{

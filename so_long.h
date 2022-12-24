@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 16:26:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:14:30 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,6 @@ typedef struct s_data
 typedef struct s_map
 {
 	char	**data_map;
-	void	*player;
-	void	*wall;
-	void	*collect;
-	void	*exit;
 	int		width;
 	int		height;
 	int		player_x;
@@ -105,5 +101,7 @@ int			move_left(t_map *m);
 int			move_right(t_map *m);
 int			move_down(t_map *m);
 // End Move player position
+
+int			door_open(t_map *m, int x, int y);
 
 #endif
