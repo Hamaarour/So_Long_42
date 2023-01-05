@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:58:37 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 22:24:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:45:21 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,16 @@ void	render_map(t_map *map)
 			else if (map->data_map[y][x] == 'E')
 				norm_two(map, x, y, 'E');
 		}
+	}
+}
+
+void	open_door(t_map *m)
+{
+	if (m->collectible == 0)
+	{
+		mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_gr,
+			m->ex_pos.ex_x * 80, m->ex_pos.ex_y * 80);
+		mlx_put_image_to_window(m->vars.mlx, m->vars.win, m->img.img_open_exit,
+			m->ex_pos.ex_x * 80, m->ex_pos.ex_y * 80);
 	}
 }

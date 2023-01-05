@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 22:31:17 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:45:41 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void		win(void);
 void		lose(void);
 int			check_path(t_map *map);
 int			check_p(t_map *map, t_ply *pl);
+void		open_door(t_map *m);
 
 /* -----Error msg--------*/
 void		error_map(void);
