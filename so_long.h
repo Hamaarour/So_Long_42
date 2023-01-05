@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/12/24 20:14:13 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 13:31:23 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,25 +72,44 @@ typedef struct s_data
 	int		height;
 }			t_img;
 
+typedef struct s_pl
+{
+	int		player_x;
+	int		player_y;
+}	t_ply;
+
 typedef struct s_map
 {
 	char	**data_map;
+	char	**map_c;
+	char	**map_e;
+	char	*lines;
+	int		refer_coin;
+	int		fd;
+	int		y;
 	int		width;
+	int		booln;
 	int		height;
-	int		player_x;
-	int		player_y;
 	int		collectible;
 	int		total_moves;
+	char	*ani[10];
+	char	*enemy[4];
+	int		enemy_x;
+	int		enemy_y;
+	int		timer;
+	int		index;
+	int		index_enemy;
 	t_img	img;
 	t_vars	vars;
-}			t_map;
+	t_ply	pl;
+}	t_map;
 
 /* ------------so long--------------*/
 int			ft_check_map_path(char *map_path);
 int			key_hook_press(int keycode, t_map *param);
 int			ft_exit(void);
-void		check_player_position(t_map *map);
-int			check_line_length(t_map *map);
+int			check_player_position(t_map *map);
+int 		check_line_length(t_map *map);
 int			check_square(t_map *map);
 int			map(t_map *map, char *argv);
 void		render_map(t_map *map);
@@ -103,8 +122,18 @@ int			move_left(t_map *m);
 int			move_right(t_map *m);
 int			move_down(t_map *m);
 
+/* -----Animation--------*/
+void		animation(t_map *map);
+void		fill_arr_animation(t_map *m);
+int			animation_timer(t_map *map);
+void		animation_enemy(t_map *map);
+void		fill_arr_animation_enemy(t_map *m);
+
 /* -----open the door--------*/
 int			door_open(t_map *m, int x, int y);
 void		win(void);
+void		lose(void);
+int 		check_path(t_map *map);
+int			check_p(t_map *map, t_ply *pl);
 
 #endif
