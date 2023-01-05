@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 21:15:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:31:17 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_data
 	void	*img_gr;
 	void	*img_collect;
 	void	*img_exit;
+	void	*img_open_exit;
 	int		width;
 	int		height;
 }			t_img;

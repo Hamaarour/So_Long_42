@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 13:19:03 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:18:33 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ void	put_image(t_map *p)
 {
 	p->img.img_wall = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/wall.xpm",
 			&p->img.width, &p->img.height);
-	p->img.img_exit = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/exit.xpm",
-			&p->img.width, &p->img.height);
+	p->img.img_exit = mlx_xpm_file_to_image(p->vars.mlx,
+			"./Textures/closed_door.xpm", &p->img.width, &p->img.height);
 	p->img.img_gr = mlx_xpm_file_to_image(p->vars.mlx, "./Textures/gr.xpm",
 			&p->img.width, &p->img.height);
 	p->img.img_player = mlx_xpm_file_to_image(p->vars.mlx,
 			"./Textures/player.xpm",
+			&p->img.width,
+			&p->img.height);
+	p->img.img_open_exit = mlx_xpm_file_to_image(p->vars.mlx,
+			"./Textures/open_door.xpm",
 			&p->img.width,
 			&p->img.height);
 	fill_arr_animation(p);
