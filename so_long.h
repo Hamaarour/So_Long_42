@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 17:06:14 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 21:15:34 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ typedef struct s_pl
 	int		player_y;
 }	t_ply;
 
+typedef struct s_po
+{
+	int	ex_x;
+	int	ex_y;
+}	t_pos;
+
 typedef struct s_map
 {
 	char	**data_map;
@@ -85,6 +91,7 @@ typedef struct s_map
 	char	**map_e;
 	char	*lines;
 	int		refer_coin;
+	int		refer_exit;
 	int		fd;
 	int		y;
 	int		width;
@@ -102,6 +109,7 @@ typedef struct s_map
 	t_img	img;
 	t_vars	vars;
 	t_ply	pl;
+	t_pos	ex_pos;
 }	t_map;
 
 /* ------------so long--------------*/
