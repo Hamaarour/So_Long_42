@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:54:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 13:41:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:10:47 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ int	check_one_p_e_c(t_map *map)
 {
 	int	i;
 	int	j;
-	int	counter;
-	int	count_collectible;
+	int	counter_p;
+	int	counter_e;
 
-	i = 0;
-	counter = 0;
-	count_collectible = 0;
-	while (map->data_map[i])
+	i = -1;
+	counter_p = 0;
+	counter_e = 0;
+	map->collectible = 0;
+	while (map->data_map[++i])
 	{
-		j = 0;
-		while (map->data_map[i][j])
+		j = -1;
+		while (map->data_map[i][++j])
 		{
-			if (map->data_map[i][j] == 'P' || map->data_map[i][j] == 'E')
-				counter++;
+			if (map->data_map[i][j] == 'P')
+				counter_p++;
+			if (map->data_map[i][j] == 'E')
+				counter_e++;
 			if (map->data_map[i][j] == 'C')
-				count_collectible++;
-			j++;
+				map->collectible++;
 		}
-		i++;
 	}
-	map->collectible = count_collectible;
-	if (count_collectible < 1 || counter > 2)
+	if (map->collectible < 1 || counter_p != 1 || counter_e != 1)
 		return (0);
 	return (1);
 }
@@ -59,31 +59,23 @@ int	check_square(t_map *map)
 	int	j;
 	int	len;
 
-	i = 0;
+	i = -1;
 	if (!check_one_p_e_c(map))
-	{
-		ft_printf("ERROR\nDuplicate");
-		exit(1);
-	}
-	while (map->data_map[i])
+		duplicate();
+	while (map->data_map[++i])
 	{
 		if (i == 0 || i == map->height - 1)
 		{
-			j = 0;
-			while (map->data_map[i][j])
+			j = -1;
+			while (map->data_map[i][++j])
 			{
 				if (map->data_map[i][j] != '1')
-				{
-					ft_printf("ERROR\nthe map not surrounded by 1's");
-					exit(1);
-				}
-				j++;
+					error_map();
 			}
 		}
 		len = ft_strlen(map->data_map[0]);
 		if (map->data_map[i][0] != '1' || map->data_map[i][len - 1] != '1')
-			return (0);
-		i++;
+			error_map();
 	}
 	return (1);
 }

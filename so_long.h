@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:39:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 13:31:23 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:06:14 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int			ft_check_map_path(char *map_path);
 int			key_hook_press(int keycode, t_map *param);
 int			ft_exit(void);
 int			check_player_position(t_map *map);
-int 		check_line_length(t_map *map);
+int			check_line_length(t_map *map);
 int			check_square(t_map *map);
 int			map(t_map *map, char *argv);
 void		render_map(t_map *map);
@@ -133,7 +133,12 @@ void		fill_arr_animation_enemy(t_map *m);
 int			door_open(t_map *m, int x, int y);
 void		win(void);
 void		lose(void);
-int 		check_path(t_map *map);
+int			check_path(t_map *map);
 int			check_p(t_map *map, t_ply *pl);
+
+/* -----Error msg--------*/
+void		error_map(void);
+void		duplicate(void);
+void		not_element(void);
 
 #endif

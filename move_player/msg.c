@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lose_msg.c                                         :+:      :+:    :+:   */
+/*   msg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:33:26 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 13:31:56 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:07:41 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,22 @@ void	win(void)
 ░░░██║░░░╚█████╔╝╚██████╔╝░░╚██╔╝░╚██╔╝░██║██║░╚███║\n\
 ░░░╚═╝░░░░╚════╝░░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝\n");
 	exit(0);
+}
+
+void	error_map(void)
+{
+	ft_printf("ERROR\nthe map not surrounded by 1's");
+	exit(1);
+}
+
+void	duplicate(void)
+{
+	ft_printf("ERROR\nDuplicate\n");
+	exit(1);
+}
+
+void	not_element(void)
+{
+	ft_printf("Element error\n");
+	exit(1);
 }
