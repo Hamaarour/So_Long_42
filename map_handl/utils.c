@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:05:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 23:14:55 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:23:07 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ int	ft_exit(void)
 
 void	pp(int count_move, t_map *m)
 {
+	char	*c;
+
+	c = ft_itoa(count_move);
 	mlx_put_image_to_window(m->vars.mlx, m->vars.win,
 		m->img.img_wall, 0 * 80, 0 * 80);
 	mlx_string_put(m->vars.mlx, m->vars.win,
-		20, 20, 0xffffff, ft_itoa(count_move));
+		20, 20, 0xffffff, c);
+	free(c);
 }
 
 int	key_hook_press(int keycode, t_map *m)

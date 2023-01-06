@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:54:33 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 17:10:47 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:24:11 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	check_line_length(t_map *map)
 		x = 0;
 		if (k != ft_strlen(map->data_map[y]))
 		{
-			ft_printf("ERROR\nLenght");
+			ft_printf("ERROR\nLenght\n");
 			exit(1);
 		}
 		y++;

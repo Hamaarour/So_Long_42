@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:03:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 23:40:05 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:23:47 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	put_image(t_map *p)
 			&p->img.height);
 	fill_arr_animation(p);
 	fill_arr_animation_enemy(p);
+	if (p->img.img_wall == NULL
+		|| p->img.img_exit == NULL || p->img.img_gr == NULL
+		|| p->img.img_player == NULL || p->img.img_open_exit == NULL)
+	{
+		ft_printf("ERROR\n image probleme\n");
+		exit(1);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -41,7 +48,7 @@ int	main(int argc, char **argv)
 	m.index_enemy = 0;
 	if (argc != 2 || !ft_check_map_path(argv[1]) || !map(&m, argv[1]))
 	{
-		printf("Error of reading the map");
+		ft_printf("Error of reading the map\n");
 		exit(1);
 	}
 	m.vars.mlx = mlx_init();

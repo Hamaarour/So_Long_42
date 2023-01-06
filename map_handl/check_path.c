@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:58:31 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/01/05 21:34:14 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:18:27 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	check_path(t_map *map)
 	path_tracking_exit(map, map->pl.player_y, map->pl.player_x);
 	if (map->collectible != map->refer_coin || map->refer_exit != 1)
 	{
-		ft_printf("ERROR!\nPath misconfguered");
+		ft_printf("ERROR!\nPath misconfguered\n");
 		exit(1);
 	}
 	return (0);
